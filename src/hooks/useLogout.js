@@ -7,26 +7,25 @@ export const useLogout = () => {
     const [error, setError] = useState(null)
     const [isPending, setIsPending] = useState(false)
     const { dispatch } = useAuthContext()
+    const {user} = useAuthContext()
 
     const logout = async () => {
         setError(null)
         setIsPending(true)
-
         try {
-            const user = supabase.auth.user()
-            if (user) {
-                const { error: updateError } = await supabase
-                    .from('users')
-                    .update({ online: false })
-                    .eq('id', user.id)
-                if (updateError) throw updateError
-            }
+            const { error: updateError } = await supabase
+                .from('users')
+                .update({ is_online: false })
+                .eq('user_id', user.id)
+            if (updateError) throw updateError
             
             const { error: signOutError } = await supabase.auth.signOut()
             if (signOutError) throw signOutError
             
             dispatch({ type: 'LOGOUT' })
-
+                
+            localStorage.clear()
+            window.location.reload()
             if (!isCancelled) {
                 setIsPending(false)
                 setError(null)

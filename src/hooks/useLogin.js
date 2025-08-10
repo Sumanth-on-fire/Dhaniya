@@ -22,11 +22,10 @@ export const useLogin = () => {
             return
         }
 
-        const { error: updateError } = await supabase
+        const {error: updateError } = await supabase
             .from('users')
-            .update({ online: true })
-            .eq('id', data.user.id)
-
+            .update({ is_online: true })
+            .eq('user_id', data.user.id)
         if (updateError) {
             if (!isCancelled) {
                 setError(updateError.message)

@@ -8,9 +8,7 @@
 }
 .user-list h2 {
   text-align: right;
-  margin-bottom: 40px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  /* padding-bottom: 10px; */
   font-size: 1.2em;
 }
 .user-list .user-list-item {
@@ -34,4 +32,11 @@
   background: #0ebb50;
   border-radius: 50%;
   margin-top: 2px;
+}
+
+.user-list .last-updated {
+  border-bottom: 1px solid #eee;
+  font-size: 10px;
+  margin-bottom: 40px;
+  text-align: end;
 }

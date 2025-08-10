@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLogin } from '../../hooks/useLogin'
 
 // styles
@@ -13,6 +13,10 @@ export default function Login() {
     e.preventDefault()
     login(email, password)
   }
+
+  useEffect(()=> {
+    console.log("login error: ", error)
+  }, [error])
 
   return (
     <form onSubmit={handleSubmit} className="auth-form">

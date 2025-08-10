@@ -3,6 +3,7 @@ import { useSignup } from '../../hooks/useSignup'
 
 // styles
 import './Signup.css'
+import { Redirect } from 'react-router-dom'
 
 export default function Signup() {
   const [email, setEmail] = useState('')
@@ -12,9 +13,10 @@ export default function Signup() {
   const [thumbnailError, setThumbnailError] = useState(null)
   const { signup, isPending, error } = useSignup()
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    signup(email, password, displayName, thumbnail)
+    await signup(email, password, displayName, thumbnail)
+    window.location.pathname = '/login'
   }
 
   const handleFileChange = (e) => {
@@ -80,7 +82,9 @@ export default function Signup() {
         {thumbnailError && <div className="error">{thumbnailError}</div>}
       </label>
       {!isPending && <button className="btn">Sign up</button>}
+      {/* <Redirect to='/login'> */}
       {isPending && <button className="btn" disabled>loading</button>}
+      {/* </Redirect> */}
       {error && <div className="error">{error}</div>}
     </form>
   )

@@ -13,7 +13,7 @@ export const useCollection = (collection, _query, _orderBy) => {
             const { data, error } = await supabase.storage
                 .from("dhaniya-storage")
                 .list(collection);
-
+            console.log("Printing the collection data: ", data)
             if (error) {
                 console.error(error);
                 setError("could not fetch the data");
