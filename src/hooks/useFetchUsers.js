@@ -8,7 +8,7 @@ export const useFetchUsers = () => {
     const [isPending, setIsPending] = useState(false)
 
     useEffect(()=>{
-        const id = setInterval(() => setNow(Date.now()), 1000_0)
+        const id = setInterval(() => setNow(Date.now()), 300000)
         return () => clearInterval(id)
     }, [])
 
