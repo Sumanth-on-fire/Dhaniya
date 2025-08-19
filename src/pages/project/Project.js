@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom.min"
-import { useFetchProjectDetails } from "../../hooks/useFetchProjectDetails"
+import { useFetchProjectDetails } from "../../hooks/project/useFetchProjectDetails"
 import ProjectSummary from "./ProjectSummary"
+import { ProjectComments } from "./ProjectComments"
 
 const Project = () => {
   const {id} = useParams()
@@ -20,6 +21,7 @@ const Project = () => {
   return !isLoading && projectDetails && (
     <div className='project-details'>
       <ProjectSummary projectDetails={projectDetails}/>
+      <ProjectComments projectId={projectDetails.project_id}/>
       {/* <h1>{projectDetails.project_name}</h1> */}
     </div>
   )

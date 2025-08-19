@@ -1,7 +1,18 @@
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import Avatar from "../../components/Avatar"
 import './Project.css'
+import { useAuthContext } from "../../hooks/auth/useAuthContext"
+import { useDeleteProject } from "../../hooks/project/useDeleteProject"
 
 const ProjectSummary = ({projectDetails}) => {
+    const {user} = useAuthContext()
+    const {deleteProject} = useDeleteProject(projectDetails.project_id)
+    const history = useHistory()
+    const handleClick = async () => {
+        await deleteProject()
+        history.push('/')
+    }
+
     return (
         <div>
             <div className="project-summary">
@@ -21,6 +32,9 @@ const ProjectSummary = ({projectDetails}) => {
                     ))}
                 </div>
             </div>
+            {user.id === projectDetails.user_id && (
+                <button className="btn" onClick={handleClick}> Mark as Complete </button>
+            )}
         </div>
     )
 }

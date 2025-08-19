@@ -34,8 +34,6 @@ export const AuthContextProvider = ({ children }) => {
             subscription.unsubscribe()
         }
     }, [])
-
-    console.log('AuthContext state:', state)
     
     return (
         <AuthContext.Provider value={{ ...state, dispatch, storage }}>

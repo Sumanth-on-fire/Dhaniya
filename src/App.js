@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import { useAuthContext } from './hooks/useAuthContext'
+import { useAuthContext } from './hooks/auth/useAuthContext'
 
 // styles
 import './App.css'

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { useCollection } from '../hooks/useCollection'
+import { useCollection } from '../hooks/store/useCollection'
 
 // components
 import Avatar from './Avatar'
 
 // styles
 import './OnlineUsers.css'
-import { useFetchUsers } from '../hooks/useFetchUsers'
+import { useFetchUsers } from '../hooks/user/useFetchUsers'
 
 export default function OnlineUsers() {
   const {userList, fetchError, now, isPending} = useFetchUsers()

@@ -1,7 +1,7 @@
 // styles
 import { useEffect, useRef, useState } from 'react'
 import './Avatar.css'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useAuthContext } from '../hooks/auth/useAuthContext'
 import { supabase } from '../supabase/config'
 
 export default function Avatar({ src }) {

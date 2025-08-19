@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../supabase/config'
+import { supabase } from '../../supabase/config'
 import { useAuthContext } from './useAuthContext'
 
 export const useLogout = () => {

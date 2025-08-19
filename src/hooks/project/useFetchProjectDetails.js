@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { supabase } from "../supabase/config"
+import { supabase } from "../../supabase/config"
 
 export const useFetchProjectDetails = (projectId) => {
     const [projectDetails, setProjectDetails] = useState(null)
@@ -9,7 +9,7 @@ export const useFetchProjectDetails = (projectId) => {
         setIsLoading(true)
         try {
             setIsLoading(true)
-            const {data: projectDetailsList, error: projectError} = await supabase.from('projects').select('*').eq('project_id', parseInt(projectId))
+            const {data: projectDetailsList, error: projectError} = await supabase.from('projects').select('*').eq('project_id', parseInt(projectId)).eq('is_deleted', false)
             if (projectError) {
                 setFetchError("Could not fetch project details")
             } else {

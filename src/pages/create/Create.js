@@ -2,11 +2,11 @@
 import { useState } from 'react'
 import Select from 'react-select'
 import './Create.css'
-import { useFetchUsers } from '../../hooks/useFetchUsers'
-import { useAuthContext } from '../../hooks/useAuthContext'
+import { useFetchUsers } from '../../hooks/user/useFetchUsers'
+import { useAuthContext } from '../../hooks/auth/useAuthContext'
 import { supabase, timestamp } from '../../supabase/config'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { useCreateProject } from '../../hooks/useCreateProject'
+import { useCreateProject } from '../../hooks/project/useCreateProject'
 
 const categories = [
   {value: 'development', label: 'Development'},

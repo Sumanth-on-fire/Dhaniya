@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { supabase } from "../supabase/config";
+import { supabase } from "../../supabase/config";
 
 export const useCollection = (collection, _query, _orderBy) => {
     const [documents, setDocuments] = useState(null);
